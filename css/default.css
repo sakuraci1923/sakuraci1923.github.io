@@ -1,18 +1,12 @@
-/* define a color variable */
 :root {
-    --primary-color: #ff6347;
-    /* tomato */
-    --secondary-color: #4caf50;
-    /* green */
-    --background-color: #f0f0f0;
-    /* --background-color: #f0efe7; */
-    /* light gray */
-    --text-color: #333333;
-    /* dark gray */
-
+    --background-color: #ffffff;
+    --text-color: #212121;
     --saci-yellow: #fcef17;
     --saci-green: #afd463;
     --saci-pink: #f1bfd8;
+    --content-max: 720px;
+    --nav-max: 30ch;
+    --layout-gap: clamp(1.5rem, 4vw, 4rem);
 }
 
 body {
@@ -20,43 +14,19 @@ body {
     font-style: normal;
     color: var(--text-color);
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: var(--background-color);
-}
-
-.banner {
-    text-align: center;
-    background-color: var(--saci-yellow);
-    /* background-image: url("../media/pink-riso.jpg"); */
-    padding: 3em;
-    position: relative;
-}
-
-.banner::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -20px; /* half overlap */
-  height: 40px;  /* image height */
-  background: url("../media/pink-batsu.png") repeat-x;
-  background-size: auto 40px;
-  pointer-events: none;
-}
-
-.banner a {
-    text-decoration: none;
-    color: var(--text-color);
-}
-
-.banner a:hover {
-    color: var(--saci-green);
+    font-family: "Inter", system-ui;
+    font-size: 1.1rem;
+    line-height: 1.75;
 }
 
 .saci-logo {
     font-family: "Pangolin", cursive;
-    /* make this text wide enough to fit the container */
-    /* font-size: clamp(1.5rem, 6vw, 5rem); */
-    font-size: calc((100vw - 2em) / 6);
+    font-size: clamp(2.3rem, 6vw, 5rem);
+    letter-spacing: 0.02em;
     margin: 0;
     padding: 0;
 }
@@ -64,38 +34,118 @@ body {
 .saci-subtitle {
     color: var(--text-color);
     font-family: "Pangolin", cursive;
-    font-size: calc((100vw - 2em) / 32);
-    margin: 0;
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    margin: 0.1rem 0 0;
     padding: 0;
-    line-height: 0.25;
+    text-align: center;
+    line-height: 1.1;
 }
 
 .greeting {
-    color: var(--saci-pink);
-    font-size: calc((100vw - 2em) / 8);
-    margin: 0.25em 0 0 0;
+    /* color: var(--saci-pink); */
+    font-size: clamp(2rem, 5.5vw, 4rem);
+    margin: 0.2em 0 0 0;
     padding: 0;
     line-height: 0.8;
 }
 
 .wrapper {
-    margin: 3em auto;
-    max-width: 60ch;
-    font-family: "Inter", system-ui;
-    line-height: 1.5;
+    flex: 1 0 auto;
+    margin: 3.2rem auto;
+    max-width: calc(var(--content-max) + var(--nav-max) + var(--layout-gap) + 2.5rem);
+    padding: 0 1.25rem;
+    display: grid;
+    grid-template-columns: minmax(0, var(--nav-max)) minmax(0, var(--content-max));
+    justify-content: center;
+    gap: clamp(1.75rem, 4vw, 4rem);
+    align-items: baseline;
+}
+
+.wrapper>header {
+    max-width: var(--nav-max);
+    position: sticky;
+    top: 1.5rem;
+    z-index: 0;
+    isolation: isolate;
+}
+
+.wrapper>header .saci-logo {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.wrapper>header .saci-logo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    background: url("../media/yellow-circle.svg") no-repeat center;
+    background-size: 100% auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.wrapper>header nav {
+    margin-top: 2.5rem;
+}
+
+.wrapper>header nav ul {
+    font-size: 1.15em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wrapper>header nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    opacity: 0.82;
+}
+
+.wrapper>header nav a:hover {
+    color: var(--saci-green);
+    opacity: 1;
+}
+
+.wrapper>main {
+    max-width: var(--content-max);
+}
+
+.wrapper>main>.greeting,
+.wrapper>main>section>h2:first-child {
+    margin-top: 0;
+}
+
+.wrapper>main p {
+    margin: 0 0 1.25rem;
+}
+
+@media (min-width: 901px) {
+    .wrapper>header {
+        position: fixed;
+        top: 1.5rem;
+        left: calc(50% - ((var(--content-max) + var(--nav-max) + var(--layout-gap)) / 2));
+        width: var(--nav-max);
+    }
+
+    .wrapper>main {
+        grid-column: 2;
+    }
 }
 
 .cherry-bomb-one-regular {
-  font-family: "Cherry Bomb One", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  /* font-size: 3em; */
-}
-
-.kiwi-maru-regular {
-  font-family: "Kiwi Maru", serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Cherry Bomb One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    /* font-size: 3em; */
 }
 
 .centered {
@@ -103,17 +153,81 @@ body {
 }
 
 .kiwi-maru {
-    background-color: var(--saci-pink);
+    /* background-color: var(--saci-pink); */
     font-family: "Kiwi Maru", serif;
     font-size: 1.5em;
     color: var(--text-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin-top: 3em;
+.yurika-illustration {
+    width: min(50%, 12rem);
+    height: auto;
+    margin: 0.5rem auto;
+    display: block;
+}
+
+.yurika-illustration + h3 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.site-footer {
+    margin: 4rem auto 0;
+    width: 100%;
+    max-width: calc(var(--content-max) + var(--nav-max) + var(--layout-gap) + 2.5rem);
+    padding: 0 1.25rem 1.25rem;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 2.2em;
+    margin-bottom: 0.55em;
     font-family: "Pangolin", cursive;
     font-weight: 700;
     font-style: normal;
+    line-height: 1.25;
+}
+
+a {
+    color: inherit;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.14em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 0.4rem 1rem;
+    border: 2px solid #ffffff;
+}
+
+thead th,
+table tr:first-child th {
+    background-color: var(--saci-green);
+}
+
+tbody td,
+table tr:not(:first-child) td {
+    background-color: #f7f7f7;
 }
 
 /* * * * BUTTON * * * */
@@ -123,6 +237,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 20px;
     justify-content: center;
     margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .cta-buttons a {
@@ -130,32 +245,72 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
-  cursor: pointer;
-  font-weight: 700;
-  transition: all 0.2s;
-  padding: 10px 20px;
-  border-radius: 100px;
-  background: var(--saci-yellow);
-  border: 1px solid transparent;
-  display: flex;
-  align-items: center;
-  font-size: 15px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background: var(--saci-yellow);
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
 }
 
 button:hover {
-  background: #fce117;
+    background: #fce117;
 }
 
-button > svg {
-  width: 34px;
-  margin-left: 10px;
-  transition: transform 0.3s ease-in-out;
+button>svg {
+    width: 34px;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
 }
 
 button:hover svg {
-  transform: translateX(5px);
+    transform: translateX(5px);
 }
 
 button:active {
-  transform: scale(0.95);
+    transform: scale(0.95);
+}
+
+@media (max-width: 900px) {
+    .wrapper {
+        grid-template-columns: minmax(0, var(--content-max));
+        gap: 1.1rem;
+    }
+
+    .wrapper>header {
+        max-width: var(--content-max);
+        position: static;
+    }
+
+    .wrapper>header .saci-logo {
+        width: max-content;
+        text-align: left;
+    }
+
+    .wrapper>header .saci-logo::before {
+        width: clamp(8rem, 42vw, 14rem);
+    }
+
+    .wrapper>header .saci-subtitle {
+        text-align: left;
+        display: none;
+        
+    }
+
+    .wrapper>header nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0.35rem 0.95rem;
+    }
+
+    .wrapper>header nav h2 {
+        text-align: left;
+        margin-bottom: 0.4rem;
+    }
 }

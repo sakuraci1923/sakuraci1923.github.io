@@ -7,23 +7,31 @@
     <link rel="stylesheet" href="css/default.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Kiwi+Maru&family=Pangolin&display=swap" rel="stylesheet">
     <title>SaCI &mdash; Japanese language school</title>
 </head>
 
 <body>
-    <div class="banner">
-        <a href="index.html"><h1 class="saci-logo">SaCI</h1></a>
-        <p class="saci-subtitle">Japanese language school</p>
-
-        <p class="greeting">
-            <span lang="ja" class="cherry-bomb-one-regular">こんにちは！</span>
-        </p>
-    </div>
     <div class="wrapper">
+        <header>
+            <h1 class="saci-logo">SaCI</h1>
+            <p class="saci-subtitle">Japanese Language School</p>
+
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="teachers.html">Teachers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="trial.html">Trial Lesson</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
         <section id="Pricing">
             <h2>Pricing</h2>
             <p>Find the lesson type that suits you. All prices are listed per student.</p>
@@ -52,65 +60,65 @@
                     <th>Price</th>
                 </tr>
                 <tr>
-                    <td>Face to Face</td>
+                    <td rowspan="2">Face to Face</td>
                     <td>1 hour</td>
                     <td>$55</td>
                 </tr>
                 <tr>
-                    <td>Face to Face</td>
+                    <!-- <td>Face to Face</td> -->
                     <td>1.5 hour</td>
                     <td>$82.50</td>
                 </tr>
                 <tr>
-                    <td>Online</td>
+                    <td rowspan="2">Online</td>
                     <td>1 hour</td>
                     <td>$49.50</td>
                 </tr>
                 <tr>
-                    <td>Online</td>
+                    <!-- <td>Online</td> -->
                     <td>1.5 hour</td>
                     <td>$74.50</td>
                 </tr>
             </table>
 
-            <p>Private lessons after 17:00 (peak time) incur an additional charge of 10%</p>
+            <p>Private lessons at 17:00 or later (peak period) incur an additional charge of 10%</p>
 
             <h3>Semi-Private Lessons</h3>
             <p>Semi-Private lessons are for 2 people.</p>
 
             <table>
-                <tr></tr>
+                <tr>
                     <th>Type</th>
                     <th>Length</th>
                     <th>Price</th>
                 </tr>
                 <tr>
-                    <td>Face to Face</td>
+                    <td rowspan="3">Face to Face</td>
                     <td>1 hour</td>
                     <td>$41.50</td>
                 </tr>
                 <tr>
-                    <td>Face to Face</td>
+                    <!-- <td>Face to Face</td> -->
                     <td>1.5 hour</td>
                     <td>$62</td>
                 </tr>
                 <tr>
-                    <td>Face to Face</td>
-                    <td>2 hour (10min break)</td>
+                    <!-- <td>Face to Face</td> -->
+                    <td>2 hour (incl. 10 min break)</td>
                     <td>$82.50</td>
                 </tr>
                 <tr>
-                    <td>Online</td>
+                    <td rowspan="3">Online</td>
                     <td>1 hour</td>
                     <td>$37</td>
                 </tr>
                 <tr>
-                    <td>Online</td>
+                    <!-- <td>Online</td> -->
                     <td>1.5 hour</td>
                     <td>$55.50</td>
                 </tr>
                 <tr>
-                    <td>Online</td>
+                    <!-- <td>Online</td> -->
                     <td>2 hour (incl. 10 min break)</td>
                     <td>$74.50</td>
                 </tr>
@@ -126,28 +134,26 @@
                     <th>Price</th>
                 </tr>
                 <tr>
-                    <td>Face to Face</td>
+                    <td rowspan="2">Face to Face</td>
                     <td>1.5 hour</td>
                     <td>$41.50</td>
                 </tr>
                 <tr>
-                    <td>Face to Face</td>
-                    <td>2 hour (10min break)</td>
+                    <!-- <td>Face to Face</td> -->
+                    <td>2 hour (incl. 10 min break)</td>
                     <td>$55</td>
                 </tr>
                 <tr>
-                    <td>Online</td>
+                    <td rowspan="2">Online</td>
                     <td>1.5 hour</td>
                     <td>$37</td>
                 </tr>
                 <tr>
-                    <td>Online</td>
+                    <!-- <td>Online</td> -->
                     <td>2 hour (incl. 10 min break)</td>
                     <td>$49.50</td>
                 </tr>
             </table>
-
-            <p>Private lessons after 17:00 (peak time) incur an additional charge of 10%</p>
 
             <h3>JLPT/VCE/IB Lessons</h3>
 
@@ -158,31 +164,34 @@
                     <th>Price</th>
                 </tr>
                 <tr>
-                    <td>Face to Face</td>
+                    <td rowspan="2">Face to Face</td>
                     <td>1 hour</td>
                     <td>$60.50</td>
                 </tr>
                 <tr>
-                    <td>Face to Face</td>
+                    <!-- <td>Face to Face</td> -->
                     <td>1.5 hour</td>
                     <td>$91</td>
                 </tr>
                 <tr>
-                    <td>Online</td>
+                    <td rowspan="2">Online</td>
                     <td>1 hour</td>
                     <td>$54.50</td>
                 </tr>
                 <tr>
-                    <td>Online</td>
+                    <!-- <td>Online</td> -->
                     <td>1.5 hour</td>
                     <td>$81.50</td>
                 </tr>
             </table>
 
-            <p>Private lessons after 17:00 (peak time) incur an additional charge of 10%</p>
+            <p>JLPT/VCE/IB lessons at 17:00 or later (peak period) incur an additional charge of 10%</p>
         </section>
-
+        </main>
     </div>
+    <footer class="site-footer">
+        <p>&copy; SaCI &mdash; Sakura Communication Institute</p>
+    </footer>
 </body>
 
 </html>

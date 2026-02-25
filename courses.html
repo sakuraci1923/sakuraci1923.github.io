@@ -7,24 +7,31 @@
     <link rel="stylesheet" href="css/default.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Kiwi+Maru&family=Pangolin&display=swap" rel="stylesheet">
     <title>SaCI &mdash; Japanese language school</title>
 </head>
 
 <body>
-    <div class="banner">
-        <a href="index.html"><h1 class="saci-logo">SaCI</h1></a>
-        <p class="saci-subtitle">Japanese language school</p>
-
-        <p class="greeting">
-            <span lang="ja" class="cherry-bomb-one-regular">こんにちは！</span>
-        </p>
-    </div>
     <div class="wrapper">
+        <header>
+            <h1 class="saci-logo">SaCI</h1>
+            <p class="saci-subtitle">Japanese Language School</p>
 
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="teachers.html">Teachers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="trial.html">Trial Lesson</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
         <section id="courses">
             <h2>Courses</h2>
             <p>We offer Japanese language lessons for all levels, from beginner through to advanced learners. All
@@ -63,7 +70,7 @@
                 that matches your goals, whether that is general Japanese, business Japanese, or improving a specific
                 skill like speaking or reading.</p>
             <p>Beginners typically start with our recommended textbook <span lang="ja"><ruby>みんなの日本語Ⅰ<rt>Japanese for
-                            Everyone: Book 1</rt>（赤本）<rt>Red Book</rt></ruby></span> though other materials can be used
+                            Everyone: Book 1</rt></ruby>（<ruby>赤本<rt>Red Book</rt></ruby>）</span> though other materials can be used
                 depending on your preferences.</p>
             <p>Key features:</p>
             <ul>
@@ -118,8 +125,11 @@
             </ul>
 
         </section>
-
+        </main>
     </div>
+    <footer class="site-footer">
+        <p>&copy; SaCI &mdash; Sakura Communication Institute</p>
+    </footer>
 </body>
 
 </html>
