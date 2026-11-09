@@ -28,7 +28,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;margin:0;line-height:1.05
 .nav-inner{max-width:1200px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 @media(max-width:720px){.nav-inner{padding:14px 20px}}
 .brand{display:flex;align-items:center;gap:12px}
-.logomark{width:44px;height:44px;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-family:var(--jp);font-weight:700;font-size:24px;line-height:1}
+.logomark{flex:none;width:44px;height:44px;aspect-ratio:1;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-family:var(--jp);font-weight:700;font-size:24px;line-height:1}
 .wordmark{font-family:var(--display);font-weight:700;font-size:26px;line-height:1}
 .wordmark small{display:block;font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
 .nav-links{display:flex;align-items:center;gap:6px}
@@ -36,6 +36,8 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;margin:0;line-height:1.05
 .nav-links a:hover{background:var(--yellow-soft);color:var(--ink)}
 .nav-links .cta{background:var(--yellow)}.nav-links .cta:hover{background:var(--green)}
 @media(max-width:860px){.nav-links a:not(.cta){display:none}}
+.nav-links .cta{white-space:nowrap}
+@media(max-width:560px){.wordmark small{display:none}}
 /* HERO */
 .hero{padding:70px 0 90px;position:relative;overflow:hidden}
 .hero .wrap{position:relative;z-index:1}
