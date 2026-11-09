@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sakura Communication Institute — SaCI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+:root{--white:#FFFFFF;--ink:#17141A;--ink-soft:#514B55;--pink:#FF6FAE;--green:#35C463;--yellow:#FFD12E;--pink-soft:#FFE3F0;--green-soft:#DDF6E6;--yellow-soft:#FFF5CC;--display:'Fredoka',system-ui,sans-serif;--sans:'Sora',system-ui,sans-serif;--jp:'Zen Maru Gothic','Hiragino Maru Gothic ProN',sans-serif;--r:28px}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:var(--white);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+::selection{background:var(--yellow);color:var(--ink)}
+a{color:inherit;text-decoration:none}a:hover{color:var(--pink)}
+em{font-style:normal}
+.jp{font-family:var(--jp)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}@media(max-width:720px){.wrap{padding:0 20px}}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;margin:0;line-height:1.05;letter-spacing:-0.01em}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.02em;line-height:1.2}
+.pill.p{background:var(--pink)}.pill.g{background:var(--green)}.pill.y{background:var(--yellow)}.pill.k{background:var(--ink);color:var(--white)}.pill.o{border:2px solid var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font-family:var(--display);font-weight:600;font-size:18px;line-height:1;border:2px solid var(--ink);transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px);color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--white)}.btn.primary:hover{background:var(--pink);color:var(--ink)}
+.btn.ghost{background:var(--white)}.btn.ghost:hover{background:var(--yellow)}
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:var(--white)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+@media(max-width:720px){.nav-inner{padding:14px 20px}}
+.brand{display:flex;align-items:center;gap:12px}
+.logomark{width:44px;height:44px;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-family:var(--jp);font-weight:700;font-size:24px;line-height:1}
+.wordmark{font-family:var(--display);font-weight:700;font-size:26px;line-height:1}
+.wordmark small{display:block;font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{font-family:var(--display);font-weight:500;font-size:16px;padding:10px 16px;border-radius:999px}
+.nav-links a:hover{background:var(--yellow-soft);color:var(--ink)}
+.nav-links .cta{background:var(--yellow)}.nav-links .cta:hover{background:var(--green)}
+@media(max-width:860px){.nav-links a:not(.cta){display:none}}
+/* HERO */
+.hero{padding:70px 0 90px;position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:clamp(46px,7.4vw,108px);font-weight:600;line-height:1.02;max-width:14ch;text-wrap:pretty}
+.blob{display:inline-block;padding:.02em .28em .06em;border-radius:999px;line-height:1;transform:rotate(-2deg);margin:0 .04em}
+.blob.p{background:var(--pink)}.blob.g{background:var(--green);transform:rotate(1.5deg);border-radius:.35em}.blob.y{background:var(--yellow);transform:rotate(-1deg);border-radius:50%;padding:.02em .3em .06em}
+.blob small{font-family:var(--sans);font-weight:600;font-size:.3em;vertical-align:.55em;margin-left:.3em;letter-spacing:.02em}
+.hero-sub{margin:36px 0 0;font-size:19px;line-height:1.6;max-width:56ch;color:var(--ink-soft)}
+.hero-sub strong,.hero-sub em{color:var(--ink);font-weight:600}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px}
+.shape{position:absolute;pointer-events:none;border-radius:50%}
+.shape.c1{right:-220px;top:-120px;width:560px;height:560px;background:var(--pink)}
+.shape.c2{right:-40px;bottom:-200px;width:520px;height:520px;background:var(--yellow)}
+.shape.c3{right:280px;top:60px;width:150px;height:150px;background:var(--green)}
+@media(max-width:720px){.shape{display:none}}
+/* MARQUEE */
+.marquee{background:var(--green);overflow:hidden}
+.marquee-track{display:flex;gap:48px;padding:16px 0;white-space:nowrap;animation:scroll 38s linear infinite;font-family:var(--display);font-weight:600;font-size:20px}
+.marquee-track>span{display:inline-flex;align-items:center;gap:48px}
+.marquee-track .sep{color:var(--yellow);font-size:22px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+/* SECTIONS */
+.section{padding:110px 0}
+.sec-head{display:flex;flex-direction:column;align-items:flex-start;gap:22px;margin-bottom:56px}
+.sec-title{font-size:clamp(36px,4.6vw,64px);max-width:18ch;text-wrap:pretty}
+.sec-title em{display:inline-block;padding:0 .22em .04em;border-radius:999px;line-height:1.05}
+.sec-title em.p{background:var(--pink)}.sec-title em.g{background:var(--green)}.sec-title em.y{background:var(--yellow)}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:auto 1fr 1fr;gap:60px;align-items:start}
+@media(max-width:1000px){.about-grid{grid-template-columns:1fr}}
+.about-mark{width:220px;height:220px;border-radius:50%;background:var(--pink);display:grid;place-items:center;position:relative}
+.about-mark .kanji{font-family:var(--jp);font-weight:700;font-size:118px;line-height:1}
+.about-mark .tag{position:absolute;right:-14px;bottom:10px;background:var(--yellow);border-radius:999px;padding:8px 16px;font-family:var(--display);font-weight:600;font-size:16px;transform:rotate(-6deg)}
+.about-grid p{margin:0 0 18px;font-size:18px;line-height:1.65;text-wrap:pretty}
+.about-grid strong{font-weight:600}.about-grid .acro{color:var(--pink);font-weight:700}
+.about-grid a{font-weight:600;border-bottom:3px solid var(--yellow)}
+/* LESSONS */
+.lessons{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:860px){.lessons{grid-template-columns:1fr}}
+.lesson{border-radius:var(--r);padding:36px 34px 34px;position:relative;display:flex;flex-direction:column;gap:14px;min-height:380px}
+.lesson.l1{background:var(--pink)}.lesson.l2{background:var(--yellow)}.lesson.l3{background:var(--green)}.lesson.l4{background:var(--white);border:3px solid var(--ink)}
+.lesson-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.lesson-num{font-family:var(--display);font-weight:600;font-size:15px;background:var(--white);border-radius:999px;padding:6px 14px}
+.lesson.l4 .lesson-num{background:var(--ink);color:var(--white)}
+.lesson-jp{font-family:var(--jp);font-weight:700;font-size:16px;align-self:center}
+.lesson-title{font-size:clamp(32px,3.4vw,44px);margin-top:8px}
+.lesson-title em{font-weight:400}
+.lesson-desc{margin:0;font-size:16px;line-height:1.6;max-width:50ch;text-wrap:pretty}
+.lesson-benefits{list-style:none;margin:auto 0 0;padding:16px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;font-size:14px;font-weight:500}
+@media(max-width:560px){.lesson-benefits{grid-template-columns:1fr}}
+.lesson-benefits li{display:flex;gap:8px;align-items:flex-start}
+.tick{flex:none;width:18px;height:18px;border-radius:50%;background:var(--ink);color:var(--white);display:grid;place-items:center;font-size:11px;margin-top:3px}
+.lesson.l4 .tick{background:var(--green);color:var(--ink)}
+/* PRICING */
+.pricing-intro{display:flex;justify-content:space-between;gap:40px;align-items:flex-start;flex-wrap:wrap;margin-bottom:40px}
+.pricing-intro p{margin:0;font-size:18px;max-width:46ch}
+.pricing-note{margin:28px 0 0;font-size:14px;color:var(--ink-soft);background:var(--yellow-soft);border-radius:18px;padding:14px 18px;width:fit-content;max-width:100%}
+.pricing-note b{color:var(--ink)}
+.price-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.price-tab{border:2px solid var(--ink);background:var(--white);border-radius:999px;padding:10px 18px;cursor:pointer;font-family:var(--display);font-weight:600;font-size:16px;display:flex;flex-direction:column;align-items:flex-start;line-height:1.2;transition:background .15s}
+.price-tab .jp{font-size:12px;font-weight:500;color:var(--ink-soft)}
+.price-tab:hover{background:var(--yellow-soft)}
+.price-tab.active{background:var(--ink);color:var(--white)}.price-tab.active .jp{color:var(--white)}
+.price-panel{display:none}.price-panel.active{display:block}
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:860px){.price-grid{grid-template-columns:1fr}}
+.price-col{border:3px solid var(--ink);border-radius:var(--r);padding:30px 32px;background:var(--white)}
+.price-col.on{background:var(--green-soft)}
+.price-col-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.price-col h4{font-size:32px}
+.cur-note{font-size:13px;color:var(--ink-soft);margin-bottom:18px;min-height:34px;display:flex;align-items:center}
+.cur-switch{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.cur-btn{border:2px solid var(--ink);background:var(--white);border-radius:999px;padding:5px 12px;font-family:var(--display);font-weight:600;font-size:13px;cursor:pointer}
+.cur-btn.active{background:var(--pink)}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:2px dashed var(--ink)}
+.price-row-label{font-weight:500;font-size:17px}.price-row-label em{color:var(--ink-soft);font-size:14px}
+.price-row-price{font-family:var(--display);font-weight:600;font-size:36px;line-height:1}.cents{font-size:.5em;vertical-align:.6em;margin-left:1px}
+.price-note{margin:22px 0 0;font-size:14px;color:var(--ink-soft)}.price-note .star{color:var(--pink)}.price-note b{color:var(--ink)}
+/* REVIEWS */
+.reviews-grid{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:var(--ink) transparent}
+.reviews-grid>.review-card{flex:0 0 calc((100% - 48px)/3);scroll-snap-align:start}
+@media(max-width:1000px){.reviews-grid>.review-card{flex-basis:calc((100% - 24px)/2)}}
+@media(max-width:640px){.reviews-grid>.review-card{flex-basis:86%}}
+.reviews-nav{display:flex;gap:12px;justify-content:flex-end;margin-top:20px}
+.reviews-nav button{width:52px;height:52px;border-radius:999px;border:2px solid var(--ink);background:var(--white);color:var(--ink);font-family:var(--display);font-size:22px;font-weight:600;cursor:pointer;transition:background .15s,color .15s}
+.reviews-nav button:hover:not(:disabled){background:var(--ink);color:var(--white)}
+.reviews-nav button:disabled{opacity:.35;cursor:default}
+.review-card{border-radius:var(--r);padding:36px 32px;display:flex;flex-direction:column;gap:26px;position:relative}
+.review-card.p{background:var(--pink)}.review-card.y{background:var(--yellow)}.review-card.g{background:var(--green)}
+.review-card::before{content:"“";font-family:var(--display);font-weight:700;font-size:96px;line-height:.6;height:48px;display:block}
+.review-quote{margin:0;font-size:17px;line-height:1.6;text-wrap:pretty}
+.review-quote em{font-weight:700;background:var(--white);border-radius:6px;padding:0 5px}
+.review-attr{margin-top:auto;display:flex;flex-direction:column;gap:4px;font-size:14px}
+.review-attr b{font-family:var(--display);font-size:17px;font-weight:600}
+.review-attr .meta{color:var(--ink);opacity:.75}
+/* TEACHERS */
+.roster-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:1000px){.roster-grid{grid-template-columns:1fr}}
+.roster-card{border:3px solid var(--ink);border-radius:var(--r);padding:32px 30px;display:flex;flex-direction:column;gap:14px}
+.avatar{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;font-family:var(--jp);font-weight:700;font-size:40px;line-height:1}
+.roster-card.y .avatar{background:var(--yellow)}.roster-card.k .avatar{background:var(--green)}.roster-card.a .avatar{background:var(--pink)}
+.roster-card .num{font-family:var(--display);font-weight:600;font-size:14px;color:var(--ink-soft)}
+.roster-card .name-jp{font-family:var(--jp);font-weight:700;font-size:18px}
+.roster-card .name{font-size:40px;font-weight:400}.roster-card .name em{font-weight:600}
+.roster-card .role{font-weight:600;font-size:14px}
+.greeting{font-family:var(--jp);font-weight:700;font-size:17px;border-radius:18px;padding:14px 16px;line-height:1.5}
+.roster-card.y .greeting{background:var(--yellow-soft)}.roster-card.k .greeting{background:var(--green-soft)}.roster-card.a .greeting{background:var(--pink-soft)}
+.greeting em{display:block;font-family:var(--sans);font-weight:500;font-size:13px;color:var(--ink-soft)}
+.bio{margin:0;font-size:15px;line-height:1.65;text-wrap:pretty}.bio em{font-weight:600}
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+.spec{border:2px solid var(--ink);border-radius:999px;padding:4px 12px;font-family:var(--display);font-weight:500;font-size:13px}
+/* CONTACT */
+.contact{padding:40px 0 110px}
+.contact-box{background:var(--yellow);border-radius:40px;padding:70px 64px;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+@media(max-width:1000px){.contact-box{grid-template-columns:1fr;padding:48px 28px;gap:40px}}
+.contact h2{font-size:clamp(40px,5.4vw,76px);line-height:1}
+.contact h2 em{background:var(--pink);border-radius:999px;padding:0 .22em .04em;display:inline-block}
+.contact .jp-line{display:block;font-family:var(--jp);font-weight:700;font-size:.5em;margin-top:.5em}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:620px){.form-row{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-family:var(--display);font-weight:600;font-size:15px}.req{color:var(--pink)}
+.field input,.field select,.field textarea{font:inherit;font-size:16px;padding:14px 18px;border:2px solid var(--ink);border-radius:18px;background:var(--white);color:var(--ink);width:100%}
+.field textarea{min-height:140px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid var(--pink);outline-offset:2px}
+.form-submit-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:6px}
+.form-submit{border:2px solid var(--ink);background:var(--pink);border-radius:999px;padding:16px 28px;font-family:var(--display);font-weight:600;font-size:18px;cursor:pointer;display:inline-flex;gap:10px;align-items:center;transition:transform .15s,background .15s}
+.form-submit:hover{transform:translateY(-2px);background:var(--ink);color:var(--white)}
+.form-note{font-size:13px;color:var(--ink-soft)}.form-note b{color:var(--ink)}
+.form-status{background:var(--white);border-radius:18px;padding:14px 18px;font-weight:500}
+.social-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:40px}
+.social-label{font-family:var(--display);font-weight:600;font-size:15px;margin-right:4px}
+.social-icon{width:52px;height:52px;border-radius:50%;background:var(--white);border:2px solid var(--ink);display:inline-flex;align-items:center;justify-content:center;color:var(--ink);transition:transform .15s,background .15s}
+.social-icon svg{width:24px;height:24px;display:block}
+.social-icon:hover{background:var(--pink);color:var(--ink);transform:translateY(-2px)}
+/* FOOTER */
+footer{padding:30px 0 40px;font-size:13px;font-weight:500;color:var(--ink-soft)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+</style>
+</head>
+<body>
+<nav class="nav" data-screen-label="00 Nav">
+<div class="nav-inner">
+<a href="#top" class="brand"><span class="logomark" aria-hidden="true">幸</span><span class="wordmark">SaCI<small>Sakura Communication Institute</small></span></a>
+<div class="nav-links"><a href="#lessons">Lessons</a><a href="#pricing">Pricing</a><a href="#teacher">Teacher</a><a href="#contact" class="cta">Book a trial →</a></div>
+</div>
+</nav>
+
+<section class="hero" id="top" data-screen-label="01 Hero">
+<div class="shape c1" aria-hidden="true"></div><div class="shape c2" aria-hidden="true"></div><div class="shape c3" aria-hidden="true"></div>
+<div class="wrap">
+<h1>Learn Japanese with <span class="blob p">warmth,</span> <span class="blob g">curiosity</span> &amp; a little bit of <span class="blob y"><span class="jp">幸</span><small>sachi</small></span>.</h1>
+<p class="hero-sub"><strong>Sakura Communication Institute</strong> — <em>SaCI</em> for short — is a Melbourne-based Japanese language school teaching students all over the world. Private &amp; group lessons, JLPT prep, VCE/IB tutoring. Face-to-face or online.</p>
+<div class="hero-cta"><a href="#contact" class="btn primary">Take a trial lesson <span>→</span></a><a href="#lessons" class="btn ghost">See lesson types</a></div>
+</div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+<div class="marquee-track">
+<span><span class="jp">皆さん一緒にSaCIで勉強しましょう。</span><span class="sep">✦</span><span>Let’s study together at SaCI.</span><span class="sep">✦</span></span>
+<span><span class="jp">皆さん一緒にSaCIで勉強しましょう。</span><span class="sep">✦</span><span>Let’s study together at SaCI.</span><span class="sep">✦</span></span>
+<span><span class="jp">皆さん一緒にSaCIで勉強しましょう。</span><span class="sep">✦</span><span>Let’s study together at SaCI.</span><span class="sep">✦</span></span>
+<span><span class="jp">皆さん一緒にSaCIで勉強しましょう。</span><span class="sep">✦</span><span>Let’s study together at SaCI.</span><span class="sep">✦</span></span>
+</div>
+</div>
+
+<section class="section" id="about" data-screen-label="02 About">
+<div class="wrap">
+<div class="sec-head"><span class="pill p">About</span><h2 class="sec-title">A small school with a <em class="y">big</em> welcome.</h2></div>
+<div class="about-grid">
+<div class="about-mark"><span class="kanji">幸</span><span class="tag">sa-chi</span></div>
+<div>
+<p>We’re the <strong><span class="acro">Sa</span>kura <span class="acro">C</span>ommunication <span class="acro">I</span>nstitute</strong> — but you can call us <strong><span class="acro">SaCI</span></strong> for short! In Japanese this means <em>happiness and luck</em> — it’s pronounced <em>sa-chi</em> and written as <span class="jp" style="font-weight:700">幸</span>.</p>
+<p>Based in Melbourne, we provide Japanese language courses to students all over the world. From total beginners to JLPT candidates and VCE/IB students — we’ll meet you at your level.</p>
+</div>
+<div>
+<p>Unsure which lesson is right for you? Or already know some Japanese but unsure of your level?</p>
+<p>Start with an <strong>initial consultation and level assessment</strong> and we’ll find the lesson style that suits you best. <a href="#contact">Reach out →</a></p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="lessons" style="padding-top:20px" data-screen-label="03 Lessons">
+<div class="wrap">
+<div class="sec-head"><span class="pill y">Lesson types</span><h2 class="sec-title">Four ways to <em class="p">study</em> with us.</h2></div>
+<div class="lessons">
+<article class="lesson l1">
+<div class="lesson-head"><span class="lesson-num">01 / Private</span><span class="lesson-jp">プライベート</span></div>
+<h3 class="lesson-title"><em>Private</em> lessons</h3>
+<p class="lesson-desc">Fully flexible — we build a learning plan that suits you. Business Japanese, travel Japanese, focus on listening &amp; speaking — you choose. Beginners’ textbook: <span class="jp">みんなの日本語Ⅰ（赤本）</span>.</p>
+<ul class="lesson-benefits"><li><span class="tick">✓</span>Flexible schedule</li><li><span class="tick">✓</span>Face-to-face &amp; online</li><li><span class="tick">✓</span>Choose from several textbooks</li><li><span class="tick">✓</span>Advance at your own pace</li></ul>
+</article>
+<article class="lesson l2">
+<div class="lesson-head"><span class="lesson-num">02 / Group</span><span class="lesson-jp">グループ</span></div>
+<h3 class="lesson-title"><em>Group</em> lessons</h3>
+<p class="lesson-desc">Small groups of 3–6 students. Big fun, interactive, friendly &amp; cosy — everyone works together to reach the goal. Curriculum: <span class="jp">みんなの日本語Ⅰ ➜ Ⅱ（赤本・青本）</span>.</p>
+<ul class="lesson-benefits"><li><span class="tick">✓</span>New students always welcome</li><li><span class="tick">✓</span>Face-to-face &amp; online</li><li><span class="tick">✓</span>Small, friendly groups (3–6)</li><li><span class="tick">✓</span>If no level-match, you’ll be offered private</li></ul>
+</article>
+<article class="lesson l3">
+<div class="lesson-head"><span class="lesson-num">03 / JLPT</span><span class="lesson-jp">日本語能力試験</span></div>
+<h3 class="lesson-title"><em>JLPT</em> tutoring</h3>
+<p class="lesson-desc">Private tutoring focused on the Japanese Language Proficiency Test. We map your strengths and weak points, then concentrate on the weak areas to raise your overall score.</p>
+<ul class="lesson-benefits"><li><span class="tick">✓</span>Flexible schedule</li><li><span class="tick">✓</span>Face-to-face &amp; online</li><li><span class="tick">✓</span>Use your own reference books</li><li><span class="tick">✓</span>Focus on the areas you want to improve</li></ul>
+</article>
+<article class="lesson l4">
+<div class="lesson-head"><span class="lesson-num">04 / VCE &amp; IB</span><span class="lesson-jp">学校サポート</span></div>
+<h3 class="lesson-title"><em>VCE / IB</em> tutoring</h3>
+<p class="lesson-desc">We teach from the textbook students are studying at school and aim to raise scores in school exams — working out trends, countermeasures, and study suited to each school.</p>
+<ul class="lesson-benefits"><li><span class="tick">✓</span>Flexible schedule</li><li><span class="tick">✓</span>Face-to-face &amp; online</li><li><span class="tick">✓</span>Use your school materials</li><li><span class="tick">✓</span>Advance at your own pace</li></ul>
+</article>
+</div>
+</div>
+</section>
+
+<section class="section" id="pricing" data-screen-label="04 Pricing">
+<div class="wrap">
+<div class="sec-head"><span class="pill g">Pricing</span><h2 class="sec-title">Find the lesson that’s <em class="g">right</em> for you.</h2></div>
+<div class="pricing-intro">
+<p>Choose face-to-face in Melbourne, or online from anywhere in the world.</p>
+</div>
+<div class="price-tabs" role="tablist">
+<button class="price-tab active" data-tab="private" role="tab"><span class="jp">プライベート</span><span>Private</span></button>
+<button class="price-tab" data-tab="semi" role="tab"><span class="jp">セミプライベート</span><span>Semi-Private</span></button>
+<button class="price-tab" data-tab="group" role="tab"><span class="jp">グループ</span><span>Group</span></button>
+<button class="price-tab" data-tab="exam" role="tab"><span class="jp">試験対策</span><span>JLPT / VCE / IB</span></button>
+</div>
+<div class="price-panel active" id="panel-private">
+<div class="price-grid">
+<div class="price-col">
+<div class="price-col-head"><h4>Face-to-face</h4><span class="pill p">In Melbourne</span></div>
+<div class="cur-note">In-person · billed in AUD</div>
+<div class="price-row"><span class="price-row-label">1 hour</span><span class="price-row-price">$55<span class="cents">.00</span></span></div>
+<div class="price-row"><span class="price-row-label">1.5 hour</span><span class="price-row-price">$82<span class="cents">.50</span></span></div>
+</div>
+<div class="price-col on">
+<div class="price-col-head"><h4>Online</h4><span class="pill g">Anywhere</span></div>
+<div class="cur-switch" role="group" aria-label="Currency"><button class="cur-btn active" data-cur="AUD">AUD</button><button class="cur-btn" data-cur="USD">USD</button><button class="cur-btn" data-cur="GBP">GBP</button><button class="cur-btn" data-cur="EUR">EUR</button><button class="cur-btn" data-cur="JPY">JPY</button></div>
+<div class="price-row"><span class="price-row-label">1 hour</span><span class="price-row-price online-price" data-aud="49.50" data-usd="35.00" data-gbp="28.00" data-eur="32.00" data-jpy="5000"></span></div>
+<div class="price-row"><span class="price-row-label">1.5 hour</span><span class="price-row-price online-price" data-aud="74.50" data-usd="52.00" data-gbp="42.00" data-eur="48.00" data-jpy="7500"></span></div>
+</div>
+</div>
+</div>
+<div class="price-panel" id="panel-semi">
+<div class="price-grid">
+<div class="price-col">
+<div class="price-col-head"><h4>Face-to-face</h4><span class="pill p">In Melbourne · 2 ppl</span></div>
+<div class="cur-note">In-person · billed in AUD</div>
+<div class="price-row"><span class="price-row-label">1 hour</span><span class="price-row-price">$41<span class="cents">.50</span></span></div>
+<div class="price-row"><span class="price-row-label">1.5 hour</span><span class="price-row-price">$62<span class="cents">.00</span></span></div>
+<div class="price-row"><span class="price-row-label">2 hour <em>· 10 min break</em></span><span class="price-row-price">$82<span class="cents">.50</span></span></div>
+</div>
+<div class="price-col on">
+<div class="price-col-head"><h4>Online</h4><span class="pill g">Anywhere · 2 ppl</span></div>
+<div class="cur-switch" role="group" aria-label="Currency"><button class="cur-btn active" data-cur="AUD">AUD</button><button class="cur-btn" data-cur="USD">USD</button><button class="cur-btn" data-cur="GBP">GBP</button><button class="cur-btn" data-cur="EUR">EUR</button><button class="cur-btn" data-cur="JPY">JPY</button></div>
+<div class="price-row"><span class="price-row-label">1 hour</span><span class="price-row-price online-price" data-aud="37.00" data-usd="26.00" data-gbp="21.00" data-eur="24.00" data-jpy="3800"></span></div>
+<div class="price-row"><span class="price-row-label">1.5 hour</span><span class="price-row-price online-price" data-aud="55.50" data-usd="39.00" data-gbp="31.00" data-eur="36.00" data-jpy="5600"></span></div>
+<div class="price-row"><span class="price-row-label">2 hour <em>· 10 min break</em></span><span class="price-row-price online-price" data-aud="74.50" data-usd="52.00" data-gbp="42.00" data-eur="48.00" data-jpy="7500"></span></div>
+</div>
+</div>
+<p class="price-note">Price shown is <b>per person</b> · semi-private = 2 students</p>
+</div>
+<div class="price-panel" id="panel-group">
+<div class="price-grid">
+<div class="price-col">
+<div class="price-col-head"><h4>Face-to-face</h4><span class="pill p">In Melbourne · 3–6 ppl</span></div>
+<div class="cur-note">In-person · billed in AUD</div>
+<div class="price-row"><span class="price-row-label">1.5 hour</span><span class="price-row-price">$41<span class="cents">.50</span></span></div>
+<div class="price-row"><span class="price-row-label">2 hour <em>· 10 min break</em></span><span class="price-row-price">$55<span class="cents">.00</span></span></div>
+</div>
+<div class="price-col on">
+<div class="price-col-head"><h4>Online</h4><span class="pill g">Anywhere · 3–6 ppl</span></div>
+<div class="cur-switch" role="group" aria-label="Currency"><button class="cur-btn active" data-cur="AUD">AUD</button><button class="cur-btn" data-cur="USD">USD</button><button class="cur-btn" data-cur="GBP">GBP</button><button class="cur-btn" data-cur="EUR">EUR</button><button class="cur-btn" data-cur="JPY">JPY</button></div>
+<div class="price-row"><span class="price-row-label">1.5 hour</span><span class="price-row-price online-price" data-aud="37.00" data-usd="26.00" data-gbp="21.00" data-eur="24.00" data-jpy="3800"></span></div>
+<div class="price-row"><span class="price-row-label">2 hour <em>· 10 min break</em></span><span class="price-row-price online-price" data-aud="49.50" data-usd="35.00" data-gbp="28.00" data-eur="32.00" data-jpy="5000"></span></div>
+</div>
+</div>
+<p class="price-note">Price shown is <b>per person</b></p>
+</div>
+<div class="price-panel" id="panel-exam">
+<div class="price-grid">
+<div class="price-col">
+<div class="price-col-head"><h4>Face-to-face</h4><span class="pill p">In Melbourne · Exam prep</span></div>
+<div class="cur-note">In-person · billed in AUD</div>
+<div class="price-row"><span class="price-row-label">1 hour</span><span class="price-row-price">$60<span class="cents">.50</span></span></div>
+<div class="price-row"><span class="price-row-label">1.5 hour</span><span class="price-row-price">$91<span class="cents">.00</span></span></div>
+</div>
+<div class="price-col on">
+<div class="price-col-head"><h4>Online</h4><span class="pill g">Anywhere · Exam prep</span></div>
+<div class="cur-switch" role="group" aria-label="Currency"><button class="cur-btn active" data-cur="AUD">AUD</button><button class="cur-btn" data-cur="USD">USD</button><button class="cur-btn" data-cur="GBP">GBP</button><button class="cur-btn" data-cur="EUR">EUR</button><button class="cur-btn" data-cur="JPY">JPY</button></div>
+<div class="price-row"><span class="price-row-label">1 hour</span><span class="price-row-price online-price" data-aud="54.50" data-usd="38.00" data-gbp="31.00" data-eur="35.00" data-jpy="5500"></span></div>
+<div class="price-row"><span class="price-row-label">1.5 hour</span><span class="price-row-price online-price" data-aud="81.50" data-usd="57.00" data-gbp="46.00" data-eur="52.00" data-jpy="8200"></span></div>
+</div>
+</div>
+
+</div>
+<p class="pricing-note"><b>★ After 17:00</b> — additional charge of 10% on all lesson types except semi-private.</p>
+</div>
+</section>
+
+<section class="section" id="review" data-screen-label="05 Review">
+<div class="wrap">
+<div class="sec-head"><span class="pill p">Student reviews</span><h2 class="sec-title">What our <em class="y">students</em> say.</h2></div>
+<div class="reviews-grid" id="reviewsTrack" tabindex="0" role="region" aria-label="Student reviews">
+<article class="review-card p">
+<p class="review-quote">Yuri Sensei is an amazing teacher who I owe a lot to — both in the development of my Japanese and in passing the <em>JLPT N3</em>. She’s always able to provide helpful explanations for parts I don’t understand, and gives me good advice about what to work on next. I’m probably a bit of a crazy student — Yuri Sensei is very <em>flexible</em> and <em>kind</em> about it.</p>
+<div class="review-attr"><b>L.P.さん</b></div>
+</article>
+<article class="review-card y">
+<p class="review-quote">I like the <em>structure</em> of the lessons since I get to learn new concepts and also practice <em>listening and speaking</em> Japanese. I recommend continuing to study beyond the lessons and consume content like tv shows or podcasts in Japanese.</p>
+<div class="review-attr"><b>G.O.さん</b></div>
+</article>
+<article class="review-card g">
+<p class="review-quote">SaCI is <em>flexible</em> and able to <em>tailor</em> teaching patterns to the students preferences to make sure that every student has a good time learning in the best environment for them.</p>
+<div class="review-attr"><b>M.R.さん</b></div>
+</article>
+<article class="review-card p">
+<p class="review-quote">The pace is easy to adapt to and nuances of grammar are always <em>explained in detail</em> with practical/fun examples. Conducting the lesson <em>in Japanese</em> is also very good practice for speaking skills and making conversations naturally.</p>
+<div class="review-attr"><b>W.Z.さん</b></div>
+</article>
+<article class="review-card y">
+<p class="review-quote">SaCI provides <em>casual and energetic</em> Japanese lessons that don’t feel like you’re in a regular classroom. I’d recommend SaCI to anyone who’s tried studying Japanese but bounced because it felt too academic.</p>
+<div class="review-attr"><b>C.H.さん</b></div>
+</article>
+<article class="review-card g">
+<p class="review-quote">Yuri先生 is always <em>high energy</em>, engaging and very patient with understanding and explaining anything you may ask about Japanese. Her preparation and provided materials always show a high level of <em>care and quality</em>.</p>
+<div class="review-attr"><b>A.C.さん</b></div>
+</article>
+<article class="review-card p">
+<p class="review-quote">SaCI Japanese class study is very <em>organised and well designed</em>. I have been studying half year with them and I am learning a lot from their program. Highly recommend!</p>
+<div class="review-attr"><b>J.Y.さん</b></div>
+</article>
+</div>
+<div class="reviews-nav"><button type="button" id="reviewsPrev" aria-label="Previous reviews">←</button><button type="button" id="reviewsNext" aria-label="Next reviews">→</button></div>
+</div>
+</section>
+
+<section class="section" id="teacher" data-screen-label="06 Teacher">
+<div class="wrap">
+<div class="sec-head"><span class="pill g">Your teachers</span><h2 class="sec-title">Meet your <em class="p">teachers</em>.</h2></div>
+<div class="roster-grid">
+<article class="roster-card y">
+<div class="avatar">ゆ</div>
+<div class="num">01 / Head Teacher</div>
+<div class="name-jp">ゆり先生</div>
+<h4 class="name"><em>Yuri</em> Sensei</h4>
+<div class="greeting">みなさん　こんにちは　♬<br />私の名前は、ゆりです。<em>Hello everyone ♪ My name is Yuri.</em></div>
+<p class="bio">I’m Yuri, from <em>Chiba, Japan</em>, and I grew up in <em>Malaysia</em>. I’ve been in <em>Melbourne</em> for <em>9 years</em>, and I’ve been working as a Japanese teacher for almost <em>5 years</em>.</p>
+<p class="bio">I have so much passion for teaching Japanese and making it fun. Japan is a wonderful country of <em>“omotenashi”</em>, and I would love to teach you its manners and culture.</p>
+<p class="bio">I’m licensed for primary and special schools, and I’m able to teach adults as well as children.</p>
+<p class="bio"><em>Hobbies and interests:</em> coffee (I’m a trained barista), cooking, movies, handcraft, nail art, walking, travel and fashion.</p>
+<p class="bio"><em>I want to try:</em> glamping, an Australian city trip and tufting.</p>
+<p class="bio">I can’t wait to see you at SaCI!</p>
+</article>
+<article class="roster-card k">
+<div class="avatar">ま</div>
+<div class="num">02 / Teacher</div>
+<div class="name-jp">まりあ先生</div>
+<h4 class="name"><em>Maria</em> Sensei</h4>
+<div class="greeting">みなさん、こんにちは！<br />はじめまして、まりあです。<em>Nice to meet you, I’m Maria.</em></div>
+<p class="bio">I’m from <em>Fukuoka Prefecture</em>, and I currently live in <em>Malaysia</em>. I’ve taught Japanese to students from many different countries, both online and in person.</p>
+<p class="bio">In my lessons, I value making learning fun, easy to understand, and helping you build the confidence to speak. Let’s learn not just Japanese, but also Japanese culture and daily life together!</p>
+<p class="bio">I’m really looking forward to meeting you all!</p>
+</article>
+<article class="roster-card a">
+<div class="avatar">さ</div>
+<div class="num">03 / Teacher</div>
+<div class="name-jp">さゆり先生</div>
+<h4 class="name"><em>Sayuri</em> Sensei</h4>
+<div class="greeting">こんにちは、Sayuriです。<em>Hi everyone, I’m Sayuri.</em></div>
+<p class="bio">I was born and raised in Japan, in <em>Saitama Prefecture</em>. In 2023, I spent a year in <em>Canada</em> on a working holiday, where I met friends from all kinds of different backgrounds — and that experience made me appreciate the charm of Japan all over again.</p>
+<p class="bio">I’m still fairly new as a Japanese language teacher, but I’m really looking forward to meeting students who want to learn Japanese or who are interested in Japan. I’m currently living in a city called <em>York</em>, in the UK.</p>
+<p class="bio">My hobbies are traveling and hiking. If you have any countries or regions you’d recommend, I’d love to hear about them during our lessons!</p>
+</article>
+</div>
+</div>
+</section>
+
+<section class="contact" id="contact" data-screen-label="07 Contact">
+<div class="wrap">
+<div class="contact-box">
+<div>
+<span class="pill k">Contact</span>
+<h2 style="margin-top:22px">Let’s get <em>in touch</em>.<span class="jp-line">はじめましょう。</span></h2>
+<div class="social-row">
+<span class="social-label">Follow &amp; reach us</span>
+<a class="social-icon" href="https://instagram.com/sakura_c_i" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg></a>
+<a class="social-icon" href="https://facebook.com/yuri.saci" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"></path></svg></a>
+</div>
+</div>
+<form class="contact-form" id="contactForm" novalidate>
+<div class="form-row">
+<div class="field"><label for="cf-name">Your name <span class="req">*</span></label><input id="cf-name" name="name" type="text" placeholder="e.g. Jane Doe" required /></div>
+<div class="field"><label for="cf-email">Email <span class="req">*</span></label><input id="cf-email" name="email" type="email" placeholder="you@example.com" required /></div>
+</div>
+<div class="form-row">
+<div class="field"><label for="cf-lesson">Lesson type</label><select id="cf-lesson" name="lesson"><option>I'm not sure — please advise</option><option>Private General Japanese</option><option>Semi-Private (2 people)</option><option>Group lessons</option><option>JLPT tutoring</option><option>VCE / IB tutoring</option><option>Trial lesson &amp; level check</option></select></div>
+<div class="field"><label for="cf-mode">Preferred format</label><select id="cf-mode" name="mode"><option>Either — I'm flexible</option><option>Face-to-face (Melbourne)</option><option>Online (anywhere)</option></select></div>
+</div>
+<div class="field"><label for="cf-message">Message <span class="req">*</span></label><textarea id="cf-message" name="message" placeholder="Tell us a little about your Japanese level and what you'd like to learn…" required></textarea></div>
+<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+<div class="form-submit-row"><button type="submit" class="form-submit" id="formSubmit">Send enquiry <span>→</span></button></div>
+<div class="form-status" id="formStatus" role="status" aria-live="polite" hidden></div>
+</form>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap"><span>© Sakura Communication Institute · Melbourne</span><span><span class="jp">幸 · さち</span> · happiness &amp; luck</span><span>Site v1 — 2026</span></div>
+</footer>
+
+<script>
+(function(){const t=document.getElementById('reviewsTrack'),p=document.getElementById('reviewsPrev'),n=document.getElementById('reviewsNext');if(!t||!p||!n)return;const step=()=>{const c=t.querySelector('.review-card');return c?c.getBoundingClientRect().width+24:t.clientWidth;};const upd=()=>{p.disabled=t.scrollLeft<=2;n.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-2;};p.addEventListener('click',()=>t.scrollBy({left:-step(),behavior:'smooth'}));n.addEventListener('click',()=>t.scrollBy({left:step(),behavior:'smooth'}));t.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();})();
+document.querySelectorAll('.price-tab').forEach(btn=>{btn.addEventListener('click',()=>{const tab=btn.dataset.tab;document.querySelectorAll('.price-tab').forEach(b=>b.classList.toggle('active',b===btn));document.querySelectorAll('.price-panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+tab));});});
+(function(){const CUR={AUD:{sym:'$',dec:2},USD:{sym:'$',dec:2},GBP:{sym:'£',dec:2},EUR:{sym:'€',dec:2},JPY:{sym:'¥',dec:0}};let activeCur='AUD';
+function fmt(el,code){const c=CUR[code];const raw=el.dataset[code.toLowerCase()];if(raw==null)return '';const num=parseFloat(raw);if(c.dec===0)return c.sym+Math.round(num).toLocaleString('en-US');const parts=num.toFixed(2).split('.');return c.sym+Number(parts[0]).toLocaleString('en-US')+'<span class="cents">.'+parts[1]+'</span>';}
+function render(){document.querySelectorAll('.online-price').forEach(el=>{el.innerHTML=fmt(el,activeCur);});document.querySelectorAll('.cur-btn').forEach(b=>{b.classList.toggle('active',b.dataset.cur===activeCur);});}
+document.querySelectorAll('.cur-btn').forEach(b=>{b.addEventListener('click',()=>{activeCur=b.dataset.cur;render();});});render();})();
+(function(){const form=document.getElementById('contactForm');if(!form)return;form.addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(form);const name=(fd.get('name')||'').toString().trim();const email=(fd.get('email')||'').toString().trim();const lesson=(fd.get('lesson')||'').toString().trim();const mode=(fd.get('mode')||'').toString().trim();const message=(fd.get('message')||'').toString().trim();if(!name||!email||!message){form.reportValidity();return;}
+const status=document.getElementById('formStatus');const btn=document.getElementById('formSubmit');const btnHTML=btn.innerHTML;
+const show=html=>{status.innerHTML=html;status.hidden=false;};
+const payload={access_key:'55c93370-d224-451f-b065-343f75e48e38',subject:`SaCI enquiry — ${lesson||'general'}`,from_name:'SaCI website',name,email,replyto:email,'Lesson type':lesson,'Preferred format':mode,message,botcheck:fd.get('botcheck')?true:''};
+btn.disabled=true;btn.innerHTML='Sending…';status.hidden=true;
+fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)})
+.then(r=>r.json().catch(()=>({success:false})))
+.then(res=>{if(!res.success)throw new Error(res.message||'Submission failed');form.reset();show('Thanks — your enquiry has been sent. We’ll be in touch soon. <span class="jp">ありがとうございます</span> ♪');})
+.catch(()=>{show('Sorry, the message couldn’t be sent. Please try again shortly, or message us on Instagram or Facebook.');})
+.finally(()=>{btn.disabled=false;btn.innerHTML=btnHTML;});});})();
+</script>
+</body>
+</html>
